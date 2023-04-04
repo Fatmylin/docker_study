@@ -1,0 +1,23 @@
+shared:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { "postgres" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "postgres" } %>
+  host: 127.0.0.1
+  port: 5432
+
+development:
+  database: docker_study_development
+
+test:
+  database: docker_study_test
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
+
+staging:
+  database: docker_study_staging
+
+production:
+  database: docker_study_production
